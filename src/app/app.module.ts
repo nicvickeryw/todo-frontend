@@ -12,11 +12,13 @@ import {
     MatIconModule,
     MatInputModule, MatListModule,
     MatRadioModule, MatSelectModule,
-    MatSidenavModule, MatStepperModule,
+    MatStepperModule,
     MatToolbarModule
 } from '@angular/material';
-import { HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { HttpClientModule } from '@angular/common/http';
+import {RoutingModule} from './routing/routing.module';
 
 const MatModules = [
     MatSidenavModule,
@@ -39,11 +41,13 @@ const MatModules = [
         MainComponent,
         PageNotFoundComponent,
         TopNavComponent,
-        ...MatModules
     ],
     imports: [
         BrowserModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RoutingModule,
+        HttpClientModule,
+        ...MatModules
     ],
     providers: [],
     bootstrap: [AppComponent]

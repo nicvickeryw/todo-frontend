@@ -1,3 +1,4 @@
+<app-top-nav (sidenavToggle)="sideNav.toggle()"></app-top-nav>
 <mat-sidenav-container class="example-sidenav-container">
     <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="true">
         <mat-nav-list style="margin-top: 67px;">
@@ -8,6 +9,9 @@
     </mat-sidenav>
 
     <mat-sidenav-content style="margin-top: 64px;">
-        <app-page-layout></app-page-layout>
+        <p>
+            Here is some basic content.
+        </p>
+        <!--<app-page-layout></app-page-layout>-->
     </mat-sidenav-content>
 </mat-sidenav-container>
