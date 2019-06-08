@@ -1,0 +1,13 @@
+<mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="true">
+        <mat-nav-list style="margin-top: 67px;">
+            <a mat-list-item *ngFor="let item of menuItems" routerLink="{{ item.routerLink }}">
+                <mat-icon>{{ item.matIcon }}</mat-icon>&nbsp;{{ item.title }}
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content style="margin-top: 64px;">
+        <app-page-layout></app-page-layout>
+    </mat-sidenav-content>
+</mat-sidenav-container>
