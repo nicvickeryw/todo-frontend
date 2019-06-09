@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HttpClientModule } from '@angular/common/http';
 import {RoutingModule} from './routing/routing.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const MatModules = [
     MatSidenavModule,
@@ -41,6 +42,7 @@ const MatModules = [
         MainComponent,
         PageNotFoundComponent,
         TopNavComponent,
+        DashboardComponent,
     ],
     imports: [
         BrowserModule,
