@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {TopMenuItem} from '../models/top-menu-item.model';
-import {SideMenuItem} from '../models/side-menu-item.model';
+import { TopMenuItem } from '../models/top-menu-item.model';
+import { SideMenuItem } from '../models/side-menu-item.model';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class MenuService {
-    constructor(private http: HttpClient) {}
+    constructor() {}
 
     /**
      * Returns all top menu items.
@@ -23,11 +22,6 @@ export class MenuService {
     }
 }
 
-export const TopMenuItems = [
-    new TopMenuItem(1, 'Home', 'google.com'),
-];
+export const TopMenuItems = [new TopMenuItem(1, 'Home', 'google.com')];
 
-export const SideMenuItems = [
-    new SideMenuItem(1, 'Testing', 'home', 'home', {}, 1)
-];
-
+export const SideMenuItems = [new SideMenuItem(1, 'Dashboard', 'dashboard', 'dashboard', {}, 1)];
