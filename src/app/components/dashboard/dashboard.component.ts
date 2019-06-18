@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
         // Initialise form
         this.form = new FormGroup({
             itemDescription: new FormControl(null, Validators.required),
+            itemDate: new FormControl(null, Validators.required),
         });
     }
 
@@ -40,9 +41,15 @@ export class DashboardComponent implements OnInit {
      * Adds a new item.
      */
     onAddItem(): void {
-        const description = this.form.value['itemDescription'];
-        this.todoItems = this.todoItems.concat([new TodoItem(description, new Date())]);
-        this.form.reset();
+        if (this.form.valid) {
+            const description = this.form.value['itemDescription'];
+            const date = this.form.value['itemDate'];
+
+            if (description) {
+                this.todoItems = this.todoItems.concat([new TodoItem(description, date)]);
+                this.form.reset();
+            }
+        }
     }
 
     /**
@@ -51,8 +58,6 @@ export class DashboardComponent implements OnInit {
      * @param item Item to remove.
      */
     onRemoveItem(item: TodoItem): void {
-        setTimeout(() => {
-            this.todoItems = this.todoItems.filter((_item: TodoItem) => _item !== item);
-        }, 70);
+        this.todoItems = this.todoItems.filter((_item: TodoItem) => _item !== item);
     }
 }
