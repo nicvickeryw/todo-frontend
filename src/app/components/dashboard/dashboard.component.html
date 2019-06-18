@@ -2,12 +2,42 @@
     <div class="content">
         <mat-card>
             <mat-card-title>
-                Hello
+                <h2>Todo List v1</h2>
             </mat-card-title>
             <mat-card-content>
-                <p>
-                    This is some content. This is a test. Hi.
-                </p>
+                <form [formGroup]="form" (ngSubmit)="onAddItem()">
+                    <h3>
+                        <mat-form-field>
+                            <input
+                                [formControlName]="'itemDescription'"
+                                matInput
+                                type="text"
+                                style="width: 100%;"
+                                placeholder="Add an item.."
+                            />
+                        </mat-form-field>
+                        <br />
+                        <button [disabled]="!form.valid" mat-fab color="primary">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </h3>
+                    <ul>
+                        <mat-list role="list">
+                            <mat-list-item role="listitem" *ngFor="let item of todoItems; index as i">
+                                <mat-checkbox>{{ item.title }}</mat-checkbox
+                                ><button
+                                    type="button"
+                                    mat-icon-button
+                                    color="warn"
+                                    aria-label="Example icon-button with a heart icon"
+                                    (click)="onRemoveItem(item)"
+                                >
+                                    <mat-icon>clear</mat-icon>
+                                </button></mat-list-item
+                            >
+                        </mat-list>
+                    </ul>
+                </form>
             </mat-card-content>
         </mat-card>
     </div>

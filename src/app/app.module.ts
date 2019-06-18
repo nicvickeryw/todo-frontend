@@ -8,18 +8,23 @@ import { PageNotFoundComponent } from './components/layout/page-not-found/page-n
 import { TopNavComponent } from './components/layout/top-nav/top-nav.component';
 import {
     MatButtonModule,
-    MatCardModule, MatDividerModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDividerModule,
     MatIconModule,
-    MatInputModule, MatListModule,
-    MatRadioModule, MatSelectModule,
+    MatInputModule,
+    MatListModule,
+    MatRadioModule,
+    MatSelectModule,
     MatStepperModule,
-    MatToolbarModule
+    MatToolbarModule,
 } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { HttpClientModule } from '@angular/common/http';
-import {RoutingModule} from './routing/routing.module';
+import { RoutingModule } from './routing/routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const MatModules = [
     MatSidenavModule,
@@ -34,24 +39,22 @@ const MatModules = [
     MatStepperModule,
     MatDividerModule,
     ScrollingModule,
+    MatCheckboxModule,
 ];
 
+const AngularModules = [ReactiveFormsModule];
+
 @NgModule({
-    declarations: [
-        AppComponent,
-        MainComponent,
-        PageNotFoundComponent,
-        TopNavComponent,
-        DashboardComponent,
-    ],
+    declarations: [AppComponent, MainComponent, PageNotFoundComponent, TopNavComponent, DashboardComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         RoutingModule,
         HttpClientModule,
-        ...MatModules
+        ...MatModules,
+        ...AngularModules,
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
