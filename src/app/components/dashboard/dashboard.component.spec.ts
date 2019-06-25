@@ -32,11 +32,15 @@ describe('DashboardComponent', () => {
 
     it('should add a new item when add is clicked and input has values', () => {
         const hostElement = fixture.nativeElement;
-        const descInput = hostElement.querySelector('input');
+        const descInput = hostElement.querySelector('.desc-input');
+        const dateInput = hostElement.querySelector('.date-input');
         const addButton = hostElement.querySelector('.submit-button');
 
         descInput.value = 'First test item';
         descInput.dispatchEvent(new Event('input'));
+
+        dateInput.value = '07/19/2015';
+        dateInput.dispatchEvent(new Event('input'));
         fixture.detectChanges();
 
         const event = new Event('click');

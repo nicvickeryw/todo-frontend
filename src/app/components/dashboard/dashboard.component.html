@@ -10,15 +10,16 @@
                         <mat-form-field class="description" style="width: 100%;">
                             <input
                                 [formControlName]="'itemDescription'"
+                                class="desc-input"
                                 matInput
                                 type="text"
                                 placeholder="Add an item.."
-                                (click)="onAddItem()"
                             />
                         </mat-form-field>
                         <mat-form-field class="date" style="width: 100%;">
                             <input
                                 [formControlName]="'itemDate'"
+                                class="date-input"
                                 matInput
                                 [matDatepicker]="picker"
                                 placeholder="Date due"

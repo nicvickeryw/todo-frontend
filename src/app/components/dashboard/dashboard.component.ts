@@ -9,7 +9,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 })
 export class DashboardComponent implements OnInit {
     todoItems: TodoItem[] = [];
-    private form: FormGroup;
+    form: FormGroup;
 
     constructor() {}
 
@@ -41,14 +41,13 @@ export class DashboardComponent implements OnInit {
      * Adds a new item.
      */
     onAddItem(): void {
+        console.log(this.form.value);
         if (this.form.valid) {
             const description = this.form.value['itemDescription'];
             const date = this.form.value['itemDate'];
 
-            if (description) {
-                this.todoItems = this.todoItems.concat([new TodoItem(description, date)]);
-                this.form.reset();
-            }
+            this.todoItems = this.todoItems.concat([new TodoItem(description, date)]);
+            this.form.reset();
         }
     }
 
