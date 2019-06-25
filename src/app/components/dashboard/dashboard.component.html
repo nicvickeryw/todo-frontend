@@ -2,36 +2,43 @@
     <div class="content">
         <mat-card>
             <mat-card-title>
-                <h2>Todo List v1</h2>
+                <h2>Task App v1</h2>
             </mat-card-title>
             <mat-card-content>
                 <form [formGroup]="form" (ngSubmit)="onAddItem()">
                     <h3>
-                        <mat-form-field>
+                        <mat-form-field class="description" style="width: 100%;">
                             <input
                                 [formControlName]="'itemDescription'"
+                                class="desc-input"
                                 matInput
                                 type="text"
-                                style="width: 100%;"
                                 placeholder="Add an item.."
                             />
                         </mat-form-field>
+                        <mat-form-field class="date" style="width: 100%;">
+                            <input
+                                [formControlName]="'itemDate'"
+                                class="date-input"
+                                matInput
+                                [matDatepicker]="picker"
+                                placeholder="Date due"
+                            />
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
                         <br />
-                        <button [disabled]="!form.valid" mat-fab color="primary">
+                        <button class="submit-button" mat-mini-fab [disabled]="!form.valid" mat-fab color="primary">
                             <mat-icon>add</mat-icon>
                         </button>
                     </h3>
-                    <ul>
+
+                    <ul class="itemList">
+                        <!--@TODO: Refactor this list into its own component-->
                         <mat-list role="list">
                             <mat-list-item role="listitem" *ngFor="let item of todoItems; index as i">
-                                <mat-checkbox>{{ item.title }}</mat-checkbox
-                                ><button
-                                    type="button"
-                                    mat-icon-button
-                                    color="warn"
-                                    aria-label="Example icon-button with a heart icon"
-                                    (click)="onRemoveItem(item)"
-                                >
+                                <mat-checkbox>{{ item.title }} ({{ item.date.toDateString() }})</mat-checkbox
+                                ><button type="button" mat-icon-button color="warn" (click)="onRemoveItem(item)">
                                     <mat-icon>clear</mat-icon>
                                 </button></mat-list-item
                             >
